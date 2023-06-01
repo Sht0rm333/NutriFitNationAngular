@@ -1,0 +1,142 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 m-3 p-5 rounded-5" style="background-color: white;">
+                <div class="row text-left">
+                    <h1>Calculadora de calorías</h1>
+                    <div id="panel-calculo">
+                        <form action="" class="formulario" id="formulario1" name="formulario1">
+                            <fieldset class="form_labels">
+                                <div id="errorCalorias" class="error"></div>
+                                <div id="divSalario">
+                                    <p style="padding-left:20px;">Introduce las siguientes variables en nuestra
+                                        calculadora
+                                        y pulsa el bot&oacute;n para obtener el resultado abajo.</p>
+                                    <div class="form_labelbox">
+                                        <label class="labelformcalculo" style="margin-left:27px;"
+                                            for="sexo">Sexo:</label>
+                                        &nbsp;
+                                        <select style="width: 110px;" class="selectInput" tabindex="3" id="sexo"
+                                            name="sexo">
+                                            <option value="hombre" selected="selected">Hombre</option>
+                                            <option value="mujer">Mujer</option>
+                                        </select>
+                                    </div>
+                                    <div class="form_labelbox">
+                                        <label class="labelformcalculo" style="margin-left:27px;" for="altura">Altura
+                                            (cm.):</label>
+                                        &nbsp;
+                                        <input type="text" alt="" style="width: 140px;" tabindex="1" maxlength="9"
+                                            size="9" value="" id="altura" name="altura" />&nbsp; cm.
+                                    </div>
+                                    <div class="form_labelbox">
+                                        <label class="labelformcalculo" style="margin-left:27px;" for="peso">Peso
+                                            (kg.):</label>
+                                        &nbsp;
+                                        <input type="text" alt="" style="width: 140px;" tabindex="1" maxlength="9"
+                                            size="9" value="" id="peso" name="peso" />&nbsp; kg.
+                                    </div>
+                                    <!--El input que viene a continuación no sirve para nada,sólo sirve para que el formulario no se ejecute cuando hacemos intro en el input anterior-->
+                                    <input style="display:none;" />
+                                </div>
+                                <div class="form_labelbox">
+                                    <label class="labelformcalculo" style="margin-left:27px;"
+                                        for="cintura">Edad:</label>
+                                    &nbsp;
+
+                                    <input type="text" alt="" style="width: 140px;" tabindex="1" maxlength="9" size="9"
+                                        value="" id="edad" name="edad" />
+                                    &nbsp;a&ntilde;os.
+                                </div>
+
+
+                                <div id="divHijos">
+                                    <div class="form_labelbox">
+                                        <label class="labelformcalculo" style="margin-left:27px;"
+                                            for="nivelActividad">Nivel
+                                            Actividad:</label>
+                                        &nbsp;
+                                        <select style="width: 310px;" class="selectInput" tabindex="3"
+                                            id="nivelActividad" name="nivelActividad">
+                                            <option value="sedentario" selected="selected">Sedentario: poco o ningún
+                                                ejercicio</option>
+                                            <option value="pocoActivo">Poco activo: ejercicio 1-3 veces por semana
+                                            </option>
+                                            <option value="medianamente">Medianamente activo: ejercicio 3-5 veces por
+                                                semana
+                                            </option>
+                                            <option value="activo">Muy activo: ejercicio 6-7 veces por semana</option>
+                                            <option value="extraActivo">Extra activo: ejercicios muy intensos / trabajo
+                                                físico</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <table cellspacing="0" cellpadding="0" border="0" align="right"
+                                    style="margin-top: 5px;margin-right:5px;">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form_buttonbox">
+                                                    <input type="button" value="Calcular calorias diarias"
+                                                        onclick="calcularCaloriasDiarias();return true" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <form action="" method="post" class="formulario" id="formulario2" name="formulario2">
+                    <fieldset class="form_labels" style="padding:10px 10px 10px 15pt; ">
+                        <div id="resultadoPrimero">
+                            <div class="form_labelbox">
+                                <label>Necesita </label><input type="text" alt="" style="width: 70px;" tabindex="7"
+                                    maxlength="9" size="9" class="textInput" value="" id="resultado1"
+                                    name="resultado1" />
+                                kilo
+                                <label> calorias (kcal) diarias para mantener el peso. </label>
+                            </div>
+                            <div class="form_labelbox">
+                                <input type="text" alt="" style="width: 70px;" tabindex="7" maxlength="9" size="9"
+                                    class="textInput" value="" id="resultado2" name="resultado2" />
+                                <label> kilo
+                                    calorias (kcal) al día hay que consumir para bajar de peso 0.5 kg. a la semana.
+                                </label>
+                            </div>
+                            <div class="form_labelbox">
+                                <input type="text" alt="" style="width: 70px;" tabindex="7" maxlength="9" size="9"
+                                    class="textInput" value="" id="resultado3" name="resultado3" />
+                                <label> kilo
+                                    calorias (kcal) al día hay que consumir para bajar de peso 1 kg. a la semana.
+                                </label>
+                            </div>
+                            <div class="form_labelbox">
+                                <label>Necesita </label><input type="text" alt="" style="width: 70px;" tabindex="7"
+                                    maxlength="9" size="9" class="textInput" value="" id="resultado4"
+                                    name="resultado4" />
+                                <label> kilo
+                                    calorias (kcal) diarias para ganar 0.5 kg. a la semana. </label>
+                            </div>
+                            <div class="form_labelbox">
+                                <label>Necesita </label><input type="text" alt="" style="width: 70px;" tabindex="7"
+                                    maxlength="9" size="9" class="textInput" value="" id="resultado5"
+                                    name="resultado5" />
+                                <label> kilo
+                                    calorias (kcal) diarias para </label>
+                                ganar 1 kg. a la semana.
+                            </div>
+                        </div>
+
+                        <div id="errorResultados" class="error"></div>
+
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</section>

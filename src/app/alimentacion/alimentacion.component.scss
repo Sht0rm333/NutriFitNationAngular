@@ -1,0 +1,72 @@
+#container {
+    width: 70%;
+    margin: 0px auto;
+    border: 1px solid black;
+}
+
+.alimentacion {
+    background: linear-gradient(45deg,#A0E739,#09cac0);
+    font-family: consolas !important;
+    padding-bottom: 1%;
+}
+
+#subtitulo {
+    font-size: 40px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+@mixin vegetales() {
+    list-style: none;
+    position: relative;
+    right: 8px;
+    text-decoration: underline;
+}
+
+#vegetarianos {
+    @include vegetales();
+}
+
+#veganos {
+    @include vegetales();
+}
+
+#carbohidratos {
+    @include vegetales();
+}
+
+#celiacos {
+    @include vegetales();
+}
+
+#vegetales {
+    height: 200px;
+    position: absolute;
+    left: 55%;
+    top: 45%;
+    border-radius: 50%;
+}
+
+#hamburguesa {
+    height: 160px;
+    position: absolute;
+    left: 57.5%;
+    top: 85%;
+    border-radius: 50%;
+}
+
+#proteinas {
+    height: 200px;
+    position: absolute;
+    left: 57%;
+    top: 115%;
+    border-radius: 50%;
+}
+
+#gluten {
+    height: 200px;
+    position: absolute;
+    left: 55%;
+    top: 146%;
+    border-radius: 50%;
+}
