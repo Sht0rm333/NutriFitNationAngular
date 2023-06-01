@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./sesion.component.scss']
 })
 export class SesionComponent {
-  //FALTA RE HACER ESTA FUNCIÓN
+  correo: string;
+  contrasena: string;
+
+  constructor() {}
+
+  sesion() {
+    console.log(this.correo);
+    console.log(this.contrasena);
+  }
 }

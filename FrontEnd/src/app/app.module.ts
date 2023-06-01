@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,8 +26,8 @@ const appRoutes: Routes = [
   { path: "calculadora", component: CalculadoraComponent },
   { path: "ejercicios", component: EjerciciosComponent },
   { path: "informacion", component: InformacionComponent },
-  { path: "registro", component: RegistroComponent },
-  { path: "sesion", component: SesionComponent },
+  { path: "registro", component: RegistroComponent, pathMatch:'full' },
+  { path: "sesion", component: SesionComponent, pathMatch:'full' },
   { path: "terminos", component: TerminosComponent },
   { path: "videos", component: VideosComponent }
 
@@ -50,6 +52,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     NgbModule,
     RouterModule.forRoot(appRoutes)
   ],
