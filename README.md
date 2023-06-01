@@ -1,27 +1,32 @@
 # NutriFitNationAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+NutriFitNation
 
-## Development server
+Integrantes: Fernando Arellano | Javier Pérez | André González
+Fecha de entrega: 02 de abril del 2023
+Asignatura: Ingeniería web
+Profesora: Sandra P. Cano
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+EP1:
 
-## Code scaffolding
+EP1.1: Análisis de funcionalidades:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Iniciar sesión: el usuario que cuente con una cuenta creada puede ingresar a su perfil para ver su avance.
 
-## Build
+- Guardar progreso: El usuario puede  registrar y guardar su avance con respecto a su meta personal de desarrollo físico.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Crear cuenta: El usuario crea una cuenta en la página web para guardar su información y tener acceso a todas las funcionalidades posibles que tiene la página.
 
-## Running unit tests
+- Página principal: Es la página principal de nuestra página web la cual entregará información acerca de las diversas funcionalidades de la web.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Información: Esta sección contiene información de contacto sobre nosotros, los creadores de la página. Además explica los motivos de creación de la página, o sea, la razón de ser.
 
-## Running end-to-end tests
+- Ejercicios: Esta opción redirige al usuario hacia una página con los distintos grupos musculares del cuerpo humano, el usuario tendrá que seleccionar uno para poder visualizar los ejercicios más adecuados para esta zona.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Alimentación: Esta opción hará que el usuario pueda informarse acerca de qué tipo de alimentación podría llevar a cabo para mantenerse saludable.
 
-## Further help
+- Perfil: Esta opción le mostrará al usuario los datos que nos debería entregar al momento de crear la cuenta, además del avance que irá registrando respecto a su entrenamiento.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Editar perfil: Esta opción le permitirá al usuario cambiar la información de su perfil.
+
+- Calculadora: Esta sección permite al usuario ingresar su altura, peso y actividad física diaria. Gracias a esto podrá saber cuántas calorías debe comer para tener una dieta de mantenimiento, hipocalórica o hipercalórica.
