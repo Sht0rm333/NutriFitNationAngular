@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./calculadora.component.scss']
 })
 export class CalculadoraComponent {
-  //FALTA RE HACER ESTA FUNCIÓN
+
 }
