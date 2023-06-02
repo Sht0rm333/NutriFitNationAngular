@@ -1,6 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +21,7 @@ import { SesionComponent } from './sesion/sesion.component';
 import { TerminosComponent } from './terminos/terminos.component';
 import { VideosComponent } from './videos/videos.component';
 import { RouterModule, Routes } from '@angular/router';
+
 
 const appRoutes: Routes = [
   { path: "", component: IndexComponent },
@@ -51,6 +54,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,

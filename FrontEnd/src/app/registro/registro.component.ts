@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators, } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent {
-  //FALTA RE HACER ESTA FUNCIÓN
+  resultado!: string;
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  formularioContacto = new FormGroup({
+    nombre: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    correo: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),
+    altura: new FormControl('', [Validators.required, Validators.min(100)]),
+    peso: new FormControl('', [Validators.required, Validators.min(20)]),
+    contrasena: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    confirmar: new FormControl('', [Validators.required])
+  },
+  );
+  submit() {
+    if (this.formularioContacto.valid)
+      this.resultado = "Todos los datos son válidos";
+    else
+      this.resultado = "Hay datos inválidos en el formulario";
+  }
 }

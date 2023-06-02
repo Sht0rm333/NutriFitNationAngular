@@ -13,27 +13,40 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="card">
                         <div class="card-body py-5 px-md-5">
-                            <form action="" id="formulario_sesion">
-                                <!-- Email input -->
+                            <form [formGroup]="formularioContacto" (ngSubmit)="submit()">
+                                <!-- correo input -->
                                 <div class="form-outline mb-2">
-                                    <input type="email" id="correo" [(ngModel)]="correo" name="correo" class="form-control"  required />
+                                    <input type="email" id="correo"  formControlName="correo" class="form-control"  required/>
                                     <label class="form-label" for="correo">Correo Electrónico</label>
                                 </div>
-                                <div class="mt-3">
-                                    <!--<label id="correo-error" class="error" for="correo" style="margin-left: 0px;">Este
-                                        campo es obligatorio.</label>-->
+                                <div class="mt-2">
+                                    <div class="error">
+                                        <span *ngIf="this.formularioContacto.get('correo')?.errors?.['required']">
+                                            (El mail no puede quedar vacío)
+                                        </span>
+                                        <span *ngIf="this.formularioContacto.get('correo')?.errors?.['pattern']">
+                                            (El mail no es válido)
+                                        </span>
+                                    </div>
                                 </div>
                                 <!-- Password input -->
                                 <div class="form-outline mb-2">
-                                    <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" class="form-control" required />
+                                    <input type="password" id="contrasena" formControlName="contrasena" class="form-control" required />
                                     <label class="form-label" for="contrasena">Contraseña</label>
                                 </div>
-                                <div class="mt-3">
-                                    <!--<label id="contraseña-error" class="error" for="contraseña">Este campo es
-                                        obligatorio.</label>-->
+                                <div class="mt-2">
+                                    <div class="error">
+                                        <span *ngIf="this.formularioContacto.get('contrasena')?.errors?.['required']">
+                                            (La contraseña no puede quedar vacía)
+                                        </span>
+                                          <span *ngIf="this.formularioContacto.get('contrasena')?.errors?.['minlength']">
+                                            (Debe tener como mínimo 5 caracteres)
+                                        </span>
+                                    </div>
                                 </div>
                                 <!-- Submit button -->
-                                <button type="submit" class="btn btn-success btn-block mb-5" (click)="sesion()" id="enviar">
+                                <div>{{resultado}}</div>
+                                <button type="submit" class="btn btn-success btn-block mb-5"  id="enviar">
                                     Iniciar Sesión
                                 </button>
                                 <!-- Register buttons -->

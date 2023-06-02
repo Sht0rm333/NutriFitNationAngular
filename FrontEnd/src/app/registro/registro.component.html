@@ -5,30 +5,36 @@
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registrar Cuenta</h3>
-                        <form action="" id="formulario_registro">
+                        <form [formGroup]="formularioContacto" (ngSubmit)="submit()">
 
                             <div class="row">
                                 <div class="col-md-6 mb-4">
 
                                     <div class="form-outline">
-                                        <input type="text" id="nombre" name="nombre"
-                                            class="form-control form-control-lg" nombre="nombre" required />
+                                        <input type="text" id="nombre" formControlName="nombre" class="form-control form-control-lg" nombre="nombre" required />
                                         <label class="form-label" for="nombre">Nombre Completo</label>
                                     </div>
-                                    <div>
-                                        <!--<label id="nombre-error" class="error" for="nombre">Este campo es
-                                            obligatorio.</label>-->
+                                    <div class="error">
+                                        <span *ngIf="this.formularioContacto.get('nombre')?.errors?.['required']">
+                                            (El nombre no puede quedar vacío)
+                                        </span>
+                                        <span *ngIf="this.formularioContacto.get('nombre')?.errors?.['minlength']">
+                                            (Debe tener como mínimo 10 caracteres)
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="form-outline">
-                                        <input type="email" id="correo" name="correo"
-                                            class="form-control form-control-lg" correo="correo" required />
+                                        <input type="email" id="correo" formControlName="correo" class="form-control form-control-lg" correo="correo" required />
                                         <label class="form-label" for="correo">Correo Electrónico</label>
                                     </div>
-                                    <div>
-                                        <!--<label id="correo-error" class="error" for="correo">Este campo es
-                                            obligatorio.</label>-->
+                                    <div class="error">
+                                        <span *ngIf="this.formularioContacto.get('correo')?.errors?.['required']">
+                                            (El mail no puede quedar vacío)
+                                        </span>
+                                        <span *ngIf="this.formularioContacto.get('correo')?.errors?.['pattern']">
+                                            (El mail no es válido)
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -37,13 +43,16 @@
                                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                                     <div class="form-outline datepicker w-100">
-                                        <input type="number" class="form-control form-control-lg" id="altura"
-                                            name="altura" altura="altura" required />
-                                        <label class="form-label" for="altura">Altura</label>
+                                        <input type="number" class="form-control form-control-lg" id="altura" formControlName="altura" altura="altura" required />
+                                        <label class="form-label" for="altura">Altura(cm)</label>
                                     </div>
-                                    <div class="">
-                                        <!--<label id="altura-error" class="error" for="altura">Este campo es
-                                            obligatorio.</label>-->
+                                    <div class="error">
+                                        <span *ngIf="this.formularioContacto.get('altura')?.errors?.['required']">
+                                            (La altura no puede quedar vacía)
+                                        </span>
+                                        <span *ngIf="this.formularioContacto.get('altura')?.errors?.['min']">
+                                            (Debe medir como mínimo 100cm caracteres)
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
@@ -51,14 +60,12 @@
                                     <h6 class="mb-2 pb-1">Género: </h6>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="hombre" value="option1" checked />
+                                        <input class="form-check-input" type="radio" formControlName="inlineRadioOptions" id="hombre" value="option1" checked />
                                         <label class="form-check-label">Hombre</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="mujer" value="option2" />
+                                        <input class="form-check-input" type="radio" formControlName="inlineRadioOptions" id="mujer" value="option2" />
                                         <label class="form-check-label">Mujer</label>
                                     </div>
 
@@ -69,24 +76,32 @@
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div class="form-outline">
-                                        <input type="number" id="peso" name="peso" class="form-control form-control-lg"
+                                        <input type="number" id="peso" formControlName="peso" class="form-control form-control-lg"
                                             peso="peso" required />
-                                        <label class="form-label" for="peso">Peso</label>
+                                        <label class="form-label" for="peso">Peso(Kg)</label>
                                     </div>
-                                    <div>
-                                        <!--<label id="peso-error" class="error" for="peso">Este campo es
-                                            obligatorio.</label>-->
+                                    <div class="error">
+                                        <span *ngIf="this.formularioContacto.get('peso')?.errors?.['required']">
+                                            (El peso no puede quedar vacío)
+                                        </span>
+                                        <span *ngIf="this.formularioContacto.get('peso')?.errors?.['min']">
+                                            (Debe pesar como mínimo 20Kg caracteres)
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4 pb-2">
                                     <div class="form-outline">
-                                        <input type="password" id="contraseña" name="contraseña"
-                                            class="form-control form-control-lg" contraseña="contraseña" required />
-                                        <label class="form-label" for="contraseña">Contraseña</label>
+                                        <input type="password" id="contrasena" formControlName="contrasena"
+                                            class="form-control form-control-lg" contrasena="contrasena" required />
+                                        <label class="form-label" for="contrasena">Contraseña</label>
                                     </div>
-                                    <div>
-                                        <!--<label id="contraseña-error" class="error" for="contraseña">Este campo es
-                                            obligatorio.</label>-->
+                                    <div class="error">
+                                        <span *ngIf="this.formularioContacto.get('contrasena')?.errors?.['required']">
+                                            (La contraseña no puede quedar vacía)
+                                        </span>
+                                        <span *ngIf="this.formularioContacto.get('contrasena')?.errors?.['minlength']">
+                                            (Debe tener como mínimo 5 caracteres)
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -94,17 +109,21 @@
                             <div class="row">
                                 <div class="col-md-6 mb-4 pb-2">
                                     <div class="form-outline">
-                                        <input type="password" id="confirmar" name="confirmar"
+                                        <input type="password" id="confirmar" formControlName="confirmar"
                                             class="form-control form-control-lg" confirmar="confirmar" required />
                                         <label class="form-label" for="confirmar">Confirmar Contraseña</label>
                                     </div>
-                                    <div>
-                                        <!--<label id="confirmar-error" class="error" for="confirmar">Este campo es
-                                            obligatorio.</label>-->
+                                    <div class="error">
+                                        <span *ngIf="this.formularioContacto.get('confirmar')?.errors?.['required']">
+                                            (El confirmar contraseña no puede quedar vacío)
+                                        </span>
+                                        <span *ngIf="this.formularioContacto.get('confirmar')?.errors?.['MustMatch']">
+                                            (Las contraseñas no coinciden)
+                                        </span>
                                     </div>
                                 </div>
                             </div>
-
+                            <div>{{resultado}}</div>
                             <div class="mt-2 pt-2">
                                 <input class="btn btn-primary btn-lg" type="submit" value="Registrarse" id="enviar" />
                             </div>
