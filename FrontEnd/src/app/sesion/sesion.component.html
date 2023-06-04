@@ -22,10 +22,10 @@
                                 <div class="mt-2">
                                     <div class="error">
                                         <span *ngIf="this.formularioContacto.get('correo')?.errors?.['required']">
-                                            (El mail no puede quedar vacío)
+                                            (El correo no puede quedar vacío)
                                         </span>
                                         <span *ngIf="this.formularioContacto.get('correo')?.errors?.['pattern']">
-                                            (El mail no es válido)
+                                            (El correo no es válido)
                                         </span>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@
                                 </button>
                                 <!-- Register buttons -->
                                 <div class="text-center">
-                                    <p>No eres miembro? <a class="text-success" href="registro.html">Registrate</a></p>
+                                    <p>¿No eres miembro? <a class="text-success" href="/registro">Registrate</a></p>
                                 </div>
                             </form>
                         </div>

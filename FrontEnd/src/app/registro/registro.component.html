@@ -30,10 +30,10 @@
                                     </div>
                                     <div class="error">
                                         <span *ngIf="this.formularioContacto.get('correo')?.errors?.['required']">
-                                            (El mail no puede quedar vacío)
+                                            (El correo no puede quedar vacío)
                                         </span>
                                         <span *ngIf="this.formularioContacto.get('correo')?.errors?.['pattern']">
-                                            (El mail no es válido)
+                                            (El correo no es válido)
                                         </span>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@
                                             (La altura no puede quedar vacía)
                                         </span>
                                         <span *ngIf="this.formularioContacto.get('altura')?.errors?.['min']">
-                                            (Debe medir como mínimo 100cm caracteres)
+                                            (Debe medir como mínimo 100cm)
                                         </span>
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@
                                             (El peso no puede quedar vacío)
                                         </span>
                                         <span *ngIf="this.formularioContacto.get('peso')?.errors?.['min']">
-                                            (Debe pesar como mínimo 20Kg caracteres)
+                                            (Debe pesar como mínimo 20Kg)
                                         </span>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                             </div>
                             <!-- Register buttons -->
                             <div class="text-center">
-                                <p>Ya tienes una cuenta? <a class="text-success" href="sesion.html">Iniciar sesion</a>
+                                <p>Ya tienes una cuenta? <a class="text-success" href="/sesion">Iniciar sesion</a>
                                 </p>
                             </div>
 
