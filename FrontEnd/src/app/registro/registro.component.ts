@@ -16,8 +16,13 @@ export class RegistroComponent {
     peso: new FormControl('', [Validators.required, Validators.min(20)]),
     contrasena: new FormControl('', [Validators.required, Validators.minLength(5)]),
     confirmar: new FormControl('', [Validators.required])
-  },
+  },/*{ validators: this.checkPasswords }*/
   );
+  /*checkPasswords(group: FormGroup) {
+    const contrasena = group.get('contrasena').value;
+    const confirmar = group.get('confirmar').value;
+    return contrasena === confirmar ? null : { notSame: true }
+}*/
   submit() {
     if (this.formularioContacto.valid)
       this.resultado = "Todos los datos son válidos";
