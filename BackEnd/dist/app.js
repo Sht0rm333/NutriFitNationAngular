@@ -45,7 +45,6 @@ app.put("", jsonParser, (req, res) => {
     let altura = req.body.altura;
     let peso = req.body.peso;
     let clave = req.body.clave;
-    console.log(peso);
     connection.query("insert into usuario (nombre,email,rut,altura,peso,clave)values(?,?,?,?,?,?)", [nombre, email, rut, altura, peso, clave], function (error, results, fields) {
         res.send(JSON.stringify(results));
     });
