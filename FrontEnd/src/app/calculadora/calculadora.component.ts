@@ -69,6 +69,5 @@ export class CalculadoraComponent {
     for (let index = 0; index < pesoA.length; index++) {
       console.log(pesoA[index]);
     }
-    return resul1;
   }
 }
