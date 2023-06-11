@@ -1,5 +1,8 @@
+import { Hash } from "crypto";
+
 const express = require('express');
 const mysql = require("mysql");
+const bcrypt = require("bcrypt");
 const app = express();
 const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
@@ -32,24 +35,35 @@ app.post("", jsonParser, (req: any, res: any) => {
     let email = req.body.email;
     let clave = req.body.clave;
     console.log(email);
-    connection.query("select * from usuario where email=? and clave=?",[email,clave],function(error:any,results:any,fields:any){res.send(JSON.stringify({ "mensaje": true, "resultado": results }))});
+    connection.query("select * from usuario where email=? and clave=?", [email, clave], function (error: any, results: any, fields: any) { res.send(JSON.stringify({ "mensaje": true, "resultado": results })) });
 });
 
-app.get("", jsonParser, (req: any, res: any) =>{
-    connection.query("select * from usuario",function(error:any,results:any,fields:any){
+app.get("", jsonParser, (req: any, res: any) => {
+    connection.query("select * from usuario", function (error: any, results: any, fields: any) {
         res.send(JSON.stringify(results))
     })
 })
 
-app.put("", jsonParser,(req:any, res:any)=>{
+app.put("", jsonParser, (req: any, res: any) => {
     let nombre = req.body.nombre;
     let email = req.body.email;
-    let rut = req.body.rut;
     let altura = req.body.altura;
     let peso = req.body.peso;
     let clave = req.body.clave;
-    connection.query("insert into usuario (nombre,email,rut,altura,peso,clave)values(?,?,?,?,?,?)",
-    [nombre,email,rut,altura,peso,clave],function(error:any,results:any,fields:any){
-        res.send(JSON.stringify(results))
+    const saltRound = 15;
+    bcrypt.Hash(clave, saltRound, (error:any, hash:any) => {
+        if (error) {
+            console.error(error);
+            hash.status(500).send("error hasheando password")
+        } else {
+            connection.query("insert into usuario (nombre,email,altura,peso,clave)values(?,?,?,?,?,?)",
+                [nombre, email, altura, peso, clave], function (error: any, results: any, fields: any) {
+                    res.send(JSON.stringify(results))
+                })
+        }
     })
+    /*connection.query("insert into usuario (nombre,email,altura,peso,clave)values(?,?,?,?,?,?)",
+        [nombre, email, altura, peso, clave], function (error: any, results: any, fields: any) {
+            res.send(JSON.stringify(results))
+        })*/
 })

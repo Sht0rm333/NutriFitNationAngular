@@ -1,6 +1,8 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const express = require('express');
 const mysql = require("mysql");
+const bcrypt = require("bcrypt");
 const app = express();
 const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
@@ -41,11 +43,23 @@ app.get("", jsonParser, (req, res) => {
 app.put("", jsonParser, (req, res) => {
     let nombre = req.body.nombre;
     let email = req.body.email;
-    let rut = req.body.rut;
     let altura = req.body.altura;
     let peso = req.body.peso;
     let clave = req.body.clave;
-    connection.query("insert into usuario (nombre,email,rut,altura,peso,clave)values(?,?,?,?,?,?)", [nombre, email, rut, altura, peso, clave], function (error, results, fields) {
-        res.send(JSON.stringify(results));
+    const saltRound = 15;
+    bcrypt.Hash(clave, saltRound, (error, hash) => {
+        if (error) {
+            console.error(error);
+            hash.status(500).send("error hasheando password");
+        }
+        else {
+            connection.query("insert into usuario (nombre,email,altura,peso,clave)values(?,?,?,?,?,?)", [nombre, email, altura, peso, clave], function (error, results, fields) {
+                res.send(JSON.stringify(results));
+            });
+        }
     });
+    /*connection.query("insert into usuario (nombre,email,altura,peso,clave)values(?,?,?,?,?,?)",
+        [nombre, email, altura, peso, clave], function (error: any, results: any, fields: any) {
+            res.send(JSON.stringify(results))
+        })*/
 });
