@@ -71,9 +71,5 @@ public resul5: number;
       Math.round(calorias2mas * 1000) / 1000;
       this.resul5 = calorias2mas;
     }
-    /*var pesoA: number[] = [resul1, resul2, resul3, resul4, resul5];
-    for (let index = 0; index < pesoA.length; index++) {
-      console.log(pesoA[index]);
-    }*/
   }
 }
