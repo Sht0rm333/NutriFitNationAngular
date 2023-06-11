@@ -8,15 +8,15 @@
                     <p>Introduce las siguientes variables en nuestra calculadora y pulsa el botón para obtener el
                         resultado.</p>
                     <div>
-                        <input type="number" id="altura" name="altura" value="183" required />
+                        <input type="number" id="altura" name="altura" placeholder="183" required />
                         <label for="altura">Altura (En centímetros):</label>
                     </div>
                     <div>
-                        <input type="number" id="peso" name="peso" value="73" required />
+                        <input type="number" id="peso" name="peso" placeholder="73" required />
                         <label for="peso">Peso (En kilogramos):</label>
                     </div>
                     <div>
-                        <input type="number" id="edad" name="edad" value="22" required />
+                        <input type="number" id="edad" name="edad" placeholder="22" required />
                         <label for="edad">Edad (En años):</label>
                     </div>
                     <div>
@@ -43,23 +43,23 @@
                 <form id="form2" name="form2" method="post">
                     <p>Su cuerpo requiere:</p>
                     <div>
-                        <input type="" id="resul1" name="resul1" class="resul1" value="" />
+                        <input type="" id="resultado1" name="resultado1" [value]="resul1" />
                         <label>Kilocalorías diarias para mantener el peso.</label>
                     </div>
                     <div>
-                        <input type="" id="resul2" name="resul2" />
+                        <input type="" id="resultado2" name="resultado2" [value]="resul2" />
                         <label>Kilocalorías diarias para bajar de peso 0.5 kg. a la semana.</label>
                     </div>
                     <div>
-                        <input type="" id="resul3" name="resul3" />
+                        <input type="" id="resultado3" name="resultado3" [value]="resul3" />
                         <label>Kilocalorías diarias para bajar de peso 1 kg. a la semana.</label>
                     </div>
                     <div>
-                        <input type="" id="resul4" name="resul4" />
+                        <input type="" id="resultado4" name="resultado4" [value]="resul4" />
                         <label>Kilocalorías diarias para ganar 0.5 kg. a la semana.</label>
                     </div>
                     <div>
-                        <input type="" id="resul5" name="resul5" />
+                        <input type="" id="resultado5" name="resultado5" [value]="resul5" />
                         <label>Kilocalorías diarias para ganar 1 kg. a la semana.</label>
                     </div>
                 </form>

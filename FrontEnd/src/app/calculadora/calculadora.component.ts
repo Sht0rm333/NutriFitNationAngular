@@ -6,8 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./calculadora.component.scss']
 })
 export class CalculadoraComponent {
-  ngOnInit(): void {
-  }
+  /*ngOnInit(): void {
+  }*/
+public resul1: number;
+public resul2: number;
+public resul3: number;
+public resul4: number;
+public resul5: number;
+
   calcularCalorias() {
     var altura: any = (<HTMLInputElement | null>document.getElementById("altura"))?.value;
     var peso: any = (<HTMLInputElement | null>document.getElementById("peso"))?.value;
@@ -24,51 +30,50 @@ export class CalculadoraComponent {
       //Mantener
       var caloriasMantenerPeso = actividad * variableAuxiliar;
       Math.round(caloriasMantenerPeso * 1000) / 1000;
-      var resul1: number = caloriasMantenerPeso;
+      this.resul1 = caloriasMantenerPeso;
       //0.5 kg menos
       var calorias1menos = caloriasMantenerPeso - 500;
       Math.round(calorias1menos * 1000) / 1000;
-      var resul2: number = calorias1menos;
+      this.resul2 = calorias1menos;
       //1 kg menos
       var calorias2menos = caloriasMantenerPeso - 1000;
       Math.round(calorias2menos * 1000) / 1000;
-      var resul3: number = calorias2menos;
+      this.resul3 = calorias2menos;
       //0.5 kg más
       var calorias1mas = caloriasMantenerPeso + 500;
       Math.round(calorias1mas * 1000) / 1000;
-      var resul4: number = calorias1mas;
+      this.resul4 = calorias1mas;
       //1 kg más
       var calorias2mas = caloriasMantenerPeso + 1000;
       Math.round(calorias2mas * 1000) / 1000;
-      var resul5: number = calorias2mas;
+      this.resul5 = calorias2mas;
     }
     else {
       var variableAuxiliar = (10 * peso) + (6.25 * altura) - (5 * edad) - 161;
       //Mantener
       var caloriasMantenerPeso = actividad * variableAuxiliar;
       Math.round(caloriasMantenerPeso * 1000) / 1000;
-      var resul1: number = caloriasMantenerPeso;
+      this.resul1 = caloriasMantenerPeso;
       //0.5 kg menos
       var calorias1menos = caloriasMantenerPeso - 500;
       Math.round(calorias1menos * 1000) / 1000;
-      var resul2: number = calorias1menos;
+      this.resul2 = calorias1menos;
       //1 kg menos
       var calorias2menos = caloriasMantenerPeso - 1000;
       Math.round(calorias2menos * 1000) / 1000;
-      var resul3: number = calorias2menos;
+      this.resul3 = calorias2menos;
       //0.5 kg más
       var calorias1mas = caloriasMantenerPeso + 500;
       Math.round(calorias1mas * 1000) / 1000;
-      var resul4: number = calorias1mas;
+      this.resul4 = calorias1mas;
       //1 kg más
       var calorias2mas = caloriasMantenerPeso + 1000;
       Math.round(calorias2mas * 1000) / 1000;
-      var resul5: number = calorias2mas;
+      this.resul5 = calorias2mas;
     }
-    let pesoA: number[] = [resul1, resul2, resul3, resul4, resul5];
+    /*var pesoA: number[] = [resul1, resul2, resul3, resul4, resul5];
     for (let index = 0; index < pesoA.length; index++) {
       console.log(pesoA[index]);
-    }
-    return resul1;
+    }*/
   }
 }
