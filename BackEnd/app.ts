@@ -59,7 +59,7 @@ app.put("", jsonParser, (req: any, res: any) => {
             connection.query("insert into usuario (nombre,email,altura,peso,clave)values(?,?,?,?,?,?)",
                 [nombre, email, altura, peso, clave], function (error: any, results: any, fields: any) {
                     res.send(JSON.stringify(results))
-                })
+            })
         }
     })
     /*connection.query("insert into usuario (nombre,email,altura,peso,clave)values(?,?,?,?,?,?)",

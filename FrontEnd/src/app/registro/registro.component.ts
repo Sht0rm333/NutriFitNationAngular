@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { RegistroService } from '../services/registro.servicio';
+import { registro } from '../interfaces/registro';
 import { FormGroup, FormControl, Validators, } from '@angular/forms';
 
 function validacionContrasena(control: any): { [key: string]: boolean } | null {
@@ -19,18 +21,30 @@ function validacionContrasena(control: any): { [key: string]: boolean } | null {
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent {
-  constructor(private http: HttpClient){}
+  /*constructor(private http: HttpClient){}
   callGetMethod(){
-    const url = '../datos.json';
+    const url = 'assets/datos.json';
     this.http.get<any>(url).subscribe(
-      Response=>{
-        console.log('datos recibidos:',Response);
+      data=>{
+        console.log('datos recibidos:',data);
       },
       error=>{
         console.error('error:',error);
       }
     )
-  }
+  }*/
+  datos:Array<registro>=[];
+  constructor(private ServicioRegistro:RegistroService) {}
+  ngOnInit(): void {
+    this.ServicioRegistro.getJSON().subscribe(data=>{
+       for(let i=0;i<data.length;i++)
+             this.datos.push(data[i]);
+             
+       
+       console.log(this.datos);
+
+    });
+ }
   resultado!: string;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   formularioContacto = new FormGroup({
