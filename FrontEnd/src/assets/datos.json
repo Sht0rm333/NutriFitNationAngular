@@ -1,12 +1,28 @@
 {
-    "usuario":[
-        {
-            "nombre": "andregonzales",
-            "correo": "andre@gmail.com",
-            "altura": 180,
-            "peso": 80,
-            "contrasena": "nando",
-            "confirmar": "nando"
-        }
-    ]
+  "usuario": [
+    {
+      "nombre": "lucaschavez",
+      "correo": "lucas@gmail.com",
+      "altura": 169,
+      "peso": 69,
+      "contrasena": "kkkkk",
+      "id": 1
+    },
+    {
+      "nombre": "josegodines",
+      "correo": "jose@gmail.com",
+      "altura": 200,
+      "peso": 69,
+      "contrasena": "lucaskkk",
+      "id": 2
+    },
+    {
+      "nombre": "andre qlio weta",
+      "correo": "carlogay@gmail.com",
+      "altura": 150,
+      "peso": 20,
+      "contrasena": "kkkkk",
+      "id": 3
+    }
+  ]
 }
