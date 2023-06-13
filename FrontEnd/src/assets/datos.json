@@ -17,12 +17,28 @@
       "id": 2
     },
     {
-      "nombre": "andre qlio weta",
-      "correo": "carlogay@gmail.com",
+      "nombre": "andreweta",
+      "correo": "carlo@gmail.com",
       "altura": 150,
       "peso": 20,
       "contrasena": "kkkkk",
       "id": 3
+    },
+    {
+      "nombre": "khyronpajaro",
+      "correo": "kbotas@gmail.com",
+      "altura": 172,
+      "peso": 80,
+      "contrasena": "neeko",
+      "id": 4
+    },
+    {
+      "nombre": "asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd",
+      "correo": "lucas@gmail.com",
+      "altura": 120,
+      "peso": 111,
+      "contrasena": "11111",
+      "id": 5
     }
   ]
 }

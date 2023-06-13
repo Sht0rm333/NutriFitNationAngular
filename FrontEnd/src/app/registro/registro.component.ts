@@ -22,6 +22,8 @@ function validacionContrasena(control: any): Boolean {
 export class RegistroComponent {
   datos:Array<registro>=[];
   formularioContacto!: FormGroup;
+  resultado!: string;
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   constructor(private DatosRegistro:DatosService) {
     this.formularioContacto = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.minLength(10)]),
@@ -33,17 +35,6 @@ export class RegistroComponent {
       genero: new FormControl('', [Validators.required])
     },{ validators: validacionContrasena });
   }
-
-  ngOnInit(): void {
-    this.DatosRegistro.getJSON().subscribe(data=>{
-       for(let i=0;i<data.length;i++)
-             this.datos.push(data[i]);
-       //console.log(this.datos);
-
-    });
- }
-  resultado!: string;
-  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   /*formularioContacto = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(10)]),
     correo: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),

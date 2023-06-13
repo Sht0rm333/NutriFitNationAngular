@@ -4,11 +4,13 @@ import { sesion } from '../interfaces/sesion';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 function validacionCuenta(correo: string, contrasena: string, datos: any): boolean {
-  const primerDato = datos[0];
-  const correoBD = primerDato.correo;
-  const contrasenaBD = primerDato.contrasena;
-  if (correo! == correoBD && contrasena! == contrasenaBD) {
-    return true;
+  for(let i = 0; i<datos.length; i++){
+    const primerDato = datos[i];
+    const correoBD = primerDato.correo;
+    const contrasenaBD = primerDato.contrasena;
+    if (correo! == correoBD && contrasena! == contrasenaBD) {
+      return true;
+    }
   }
   return false;
 }

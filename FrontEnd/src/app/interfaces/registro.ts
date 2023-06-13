@@ -3,6 +3,5 @@ export interface registro{
     correo:string,
     altura:number,
     peso:number,
-    contrasena:string,
-    confirmar:string
+    contrasena:string
 }
