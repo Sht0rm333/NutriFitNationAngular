@@ -19,31 +19,36 @@
                                     <input type="email" id="correo"  formControlName="correo" class="form-control"  required/>
                                     <label class="form-label" for="correo">Correo Electrónico</label>
                                 </div>
-                                <div class="mt-2">
-                                    <div class="error">
-                                        <span *ngIf="this.formularioContacto.get('correo')?.errors?.['required']">
-                                            (El correo no puede quedar vacío)
-                                        </span>
-                                        <span *ngIf="this.formularioContacto.get('correo')?.errors?.['pattern']">
-                                            (El correo no es válido)
-                                        </span>
-                                    </div>
+                                <div class="error">
+                                    <span *ngIf="this.formularioContacto.get('correo')?.errors?.['required']">
+                                        (El correo no puede quedar vacío)
+                                    </span>
+                                    <span *ngIf="this.formularioContacto.get('correo')?.errors?.['pattern']">
+                                        (El correo no es válido)
+                                    </span>
                                 </div>
                                 <!-- Password input -->
                                 <div class="form-outline mb-2">
                                     <input type="password" id="contrasena" formControlName="contrasena" class="form-control" required />
                                     <label class="form-label" for="contrasena">Contraseña</label>
                                 </div>
-                                <div class="mt-2">
-                                    <div class="error">
-                                        <span *ngIf="this.formularioContacto.get('contrasena')?.errors?.['required']">
-                                            (La contraseña no puede quedar vacía)
-                                        </span>
-                                          <span *ngIf="this.formularioContacto.get('contrasena')?.errors?.['minlength']">
-                                            (Debe tener como mínimo 5 caracteres)
-                                        </span>
-                                    </div>
+                                <div class="error">
+                                    <span *ngIf="this.formularioContacto.get('contrasena')?.errors?.['required']">
+                                        (La contraseña no puede quedar vacía)
+                                    </span>
+                                      <span *ngIf="this.formularioContacto.get('contrasena')?.errors?.['minlength']">
+                                        (Debe tener como mínimo 5 caracteres)
+                                    </span>
                                 </div>
+                                <div class="mb-2">
+                                        <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha"  required></ngx-recaptcha2>
+                                </div>
+                                <div class="error">
+                                    <span *ngIf="this.formularioContacto.get('recaptcha')?.errors?.['required']">
+                                        ( Debe completar el captcha) 
+                                    </span>
+                                </div>
+                                
                                 <!-- Submit button -->
                                 <div>{{resultado}}</div>
                                 <button type="submit" class="btn btn-success btn-block mb-5"  id="enviar">
