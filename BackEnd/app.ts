@@ -51,7 +51,7 @@ app.put("", jsonParser, (req: any, res: any) => {
     let peso = req.body.peso;
     let clave = req.body.clave;
     const saltRound = 15;
-    bcrypt.Hash(clave, saltRound, (error:any, hash:any) => {
+    bcrypt.Hash(clave, saltRound, (error: any, hash: any) => {
         if (error) {
             console.error(error);
             hash.status(500).send("error hasheando password")
@@ -59,7 +59,7 @@ app.put("", jsonParser, (req: any, res: any) => {
             connection.query("insert into usuario (nombre,email,altura,peso,clave)values(?,?,?,?,?,?)",
                 [nombre, email, altura, peso, clave], function (error: any, results: any, fields: any) {
                     res.send(JSON.stringify(results))
-            })
+                })
         }
     })
     /*connection.query("insert into usuario (nombre,email,altura,peso,clave)values(?,?,?,?,?,?)",
