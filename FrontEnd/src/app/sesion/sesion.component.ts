@@ -22,7 +22,9 @@ function validacionCuenta(correo: string, contrasena: string, datos: any): boole
 })
 export class SesionComponent {
   datos: Array<sesion> = [];
-  constructor(private ServicioRegistro: DatosService) { }
+  constructor(private ServicioRegistro: DatosService) { 
+    this.siteKey='6LcLsMgmAAAAAP7GuCH-TmOql6JCxhyIDJpA5PFR';
+  }
   ngOnInit(): void {
     this.ServicioRegistro.getJSON().subscribe(data => {
       for (let i = 0; i < data.length; i++){
@@ -30,16 +32,19 @@ export class SesionComponent {
       }
     });
   }
+  siteKey:string;
   resultado!: string;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   formularioContacto = new FormGroup({
     correo: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
-    contrasena: new FormControl('', [Validators.required, Validators.minLength(5)])
+    contrasena: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    recaptcha: new FormControl('', [Validators.required])
   });
   submit() {
     if (this.formularioContacto.valid){
       let correo = this.formularioContacto.get('correo')?.value!;
       let contrasena = this.formularioContacto.get('contrasena')?.value!;
+      let recaptcha = this.formularioContacto.get('recaptcha')?.value!;
       if(validacionCuenta(correo, contrasena, this.datos) == true)
         this.resultado = "Todos los datos son válidos";
       else
