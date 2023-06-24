@@ -39,6 +39,14 @@
       "peso": 111,
       "contrasena": "11111",
       "id": 5
+    },
+    {
+      "nombre": "asdasdasdasd",
+      "correo": "asdasda@gmail.com",
+      "altura": 156,
+      "peso": 111,
+      "contrasena": "111111",
+      "id": 6
     }
   ]
 }

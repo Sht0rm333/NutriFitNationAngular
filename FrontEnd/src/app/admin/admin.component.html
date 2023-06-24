@@ -6,11 +6,11 @@
                 <div class="row text-center">
                     <h1>Página administrador</h1>
                 </div>
-                <div class="row m-2">
-                    <h2 style="margin-bottom: 20px">Usuarios registrados:</h2>
-                    <p></p>
-                    <button type="submit" class="btn btn-success btn-block mb-5" id="verUser">Eliminar usuario</button>
+                <h2 style="margin-bottom: 20px">Usuarios registrados:</h2>
+                <div class="row m-2 " *ngFor="let dato of datos">
+                    <span>{{dato.correo}} {{dato.contrasena}}</span>
                 </div>
+                <button type="submit" class="btn btn-success btn-block mb-5" id="verUser">Eliminar usuario</button>
             </div>
             <div class="col-sm-3"></div>
         </div>

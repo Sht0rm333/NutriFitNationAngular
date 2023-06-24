@@ -25,7 +25,7 @@ connection.connect(function (err: any) {
 
 const configuracion = {
     hostname: "127.0.0.1",
-    port: 3000,
+    port: 4200,
 }
 app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`)

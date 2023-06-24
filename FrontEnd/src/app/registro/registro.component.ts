@@ -35,15 +35,6 @@ export class RegistroComponent {
       genero: new FormControl('', [Validators.required])
     },{ validators: validacionContrasena });
   }
-  /*formularioContacto = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.minLength(10)]),
-    correo: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),
-    altura: new FormControl('', [Validators.required, Validators.min(100)]),
-    peso: new FormControl('', [Validators.required, Validators.min(20)]),
-    contrasena: new FormControl('', [Validators.required, Validators.minLength(5)]),
-    confirmar: new FormControl('', [Validators.required]),
-    genero: new FormControl('', [Validators.required])
-  },{ validators: validacionContrasena });*/
   submit() {
     this.formularioContacto.removeControl("genero");
     this.formularioContacto.removeControl("confirmar");
