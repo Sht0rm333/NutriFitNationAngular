@@ -1,7 +1,7 @@
 export interface registro{
     nombre:string,
-    correo:string,
+    email:string,
     altura:number,
     peso:number,
-    contrasena:string
+    clave:string
 }

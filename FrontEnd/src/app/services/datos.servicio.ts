@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { registro } from '../interfaces/registro';
 
 const URL = 'http://127.0.0.1:4200';
 
@@ -22,7 +23,8 @@ export class DatosService {
     return this.http.post(URL + "/usuario", body,{'headers':headers});
   }
 
-  public consultarUsuarios(){
-    return this.http.get(URL)
+  public consultarUsuarios(): Observable<registro>{
+    const headers = { 'content-type': 'application/json'}
+    return this.http.get<registro>(URL + "/diablo",{'headers':headers});
   }
 }

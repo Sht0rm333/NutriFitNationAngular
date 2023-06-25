@@ -29,7 +29,7 @@ const configuracion = {
 app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`);
 });
-app.get("/usuario", jsonParser, (req, res) => {
+app.get("/diablo", jsonParser, (req, res) => {
     connection.query("select * from usuario", function (error, results, fields) {
         res.send(JSON.stringify(results));
     });
