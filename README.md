@@ -1,5 +1,8 @@
 # NutriFitNationAngular
 Proyecto Ingeniería web v2.0
-Comandos para abrir el servidor de json y de la pagina(desde cmd):
-json: json-server --watch ../frontend/src/assets/datos.json
-pagina: ng serve --o
+Comandos para abrir (desde CMD) el servidor y la página:
+Servidor: ---
+Página: ng serve --o
+
+La página acepta distintos usuarios ya registrados, de los cuales algunos tienen el rol de administrador, por ejemplo "Usuario: - Contraseña: "
+Así mismo, un usuario nuevo puede registrarse llenando el formulario de registro, lo cual le permitirá crear una sesión que será guardada en la BD.
