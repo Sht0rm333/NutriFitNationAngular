@@ -27,7 +27,7 @@ import { AdminComponent } from './admin/admin.component';
 
 
 const appRoutes: Routes = [
-  { path: "", component: IndexComponent },
+  { path: "", component: IndexComponent, pathMatch: 'full'},
   { path: "alimentacion", component: AlimentacionComponent },
   { path: "calculadora", component: CalculadoraComponent },
   { path: "ejercicios", component: EjerciciosComponent },
@@ -37,8 +37,6 @@ const appRoutes: Routes = [
   { path: "terminos", component: TerminosComponent },
   { path: "videos", component: VideosComponent },
   { path: "admin", component: AdminComponent }
-
-
 ];
 
 @NgModule({

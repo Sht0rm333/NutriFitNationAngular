@@ -41,12 +41,28 @@
       "id": 5
     },
     {
-      "nombre": "asdasdasdasd",
+      "nombre": "lucaschavez",
       "correo": "asdasda@gmail.com",
-      "altura": 156,
-      "peso": 111,
-      "contrasena": "111111",
+      "altura": 123,
+      "peso": 123,
+      "contrasena": "123123",
       "id": 6
+    },
+    {
+      "nombre": "asdasdasdasd",
+      "correo": "carlogay@gmail.com",
+      "altura": 123,
+      "peso": 123,
+      "contrasena": "123123",
+      "id": 7
+    },
+    {
+      "nombre": "lucaschavez",
+      "correo": "kbotas@gmail.com",
+      "altura": 123,
+      "peso": 123,
+      "contrasena": "123123",
+      "id": 8
     }
   ]
 }
