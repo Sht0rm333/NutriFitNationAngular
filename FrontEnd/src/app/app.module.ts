@@ -24,10 +24,11 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { VideosComponent } from './videos/videos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 const appRoutes: Routes = [
-  { path: "", component: IndexComponent, pathMatch: 'full'},
+  { path: "", component: IndexComponent, pathMatch: 'full' },
   { path: "alimentacion", component: AlimentacionComponent },
   { path: "calculadora", component: CalculadoraComponent },
   { path: "ejercicios", component: EjerciciosComponent },
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
   { path: "sesion", component: SesionComponent, pathMatch: 'full' },
   { path: "terminos", component: TerminosComponent },
   { path: "videos", component: VideosComponent },
-  { path: "admin", component: AdminComponent }
+  { path: "admin", component: AdminComponent },
+  { path: "perfil", component: PerfilComponent }
 ];
 
 @NgModule({
@@ -55,6 +57,7 @@ const appRoutes: Routes = [
     TerminosComponent,
     VideosComponent,
     AdminComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,
