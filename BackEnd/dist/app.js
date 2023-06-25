@@ -31,7 +31,12 @@ app.listen(configuracion, () => {
 });
 app.get("/diablo", jsonParser, (req, res) => {
     connection.query("select * from usuario", function (error, results, fields) {
-        res.send(JSON.stringify(results));
+        if (error) {
+            console.error(error);
+        }
+        else {
+            res.send(JSON.stringify(results));
+        }
     });
 });
 app.post("/usuario", jsonParser, (req, res) => {

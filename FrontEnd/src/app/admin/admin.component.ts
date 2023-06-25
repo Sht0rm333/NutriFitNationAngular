@@ -8,14 +8,14 @@ import { registro } from '../interfaces/registro';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  datos: Array<registro> = [];
-  text: any;
+  datos: registro[] = [];
   constructor(public ServicioRegistro: DatosService) { 
   }
   ngOnInit(): void {
-    this.ServicioRegistro.consultarUsuarios().subscribe(data => {
-
-      console.log(data);
+    this.ServicioRegistro.consultarUsuarios().subscribe((data: registro[]) => {
+      for(let i = 0; i<data.length; i++){
+        this.datos.push(data[i]);
+      }
     });
   }
 }

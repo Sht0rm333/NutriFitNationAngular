@@ -1,7 +1,8 @@
 export interface registro{
-    nombre:string,
-    email:string,
-    altura:number,
-    peso:number,
-    clave:string
+    Nombre:String,
+    Email:String,
+    Altura:number,
+    Peso:number,
+    Clave:String,
+    Admin:number
 }
