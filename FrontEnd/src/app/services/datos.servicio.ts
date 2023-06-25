@@ -23,8 +23,7 @@ export class DatosService {
     return this.http.post(URL + "/usuario", body,{'headers':headers});
   }
 
-  public consultarUsuarios(): Observable<registro>{
-    const headers = { 'content-type': 'application/json'}
-    return this.http.get<registro>(URL + "/diablo",{'headers':headers});
+  public consultarUsuarios(): Observable<registro[]>{
+    return this.http.get<registro[]>(URL + "/diablo");
   }
 }
