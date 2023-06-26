@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2023 a las 21:47:11
+-- Tiempo de generación: 27-06-2023 a las 01:28:05
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -61,22 +61,22 @@ CREATE TABLE `usuario` (
   `Altura` int(11) NOT NULL,
   `Peso` int(11) NOT NULL,
   `Clave` varchar(45) NOT NULL,
-  `Admin` int(2) NOT NULL
+  `Admin` int(2) NOT NULL,
+  `activo` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`Nombre`, `Email`, `Altura`, `Peso`, `Clave`, `Admin`) VALUES
-('aaaaaaaaaaaaa', 'aaa@gmail.com', 111, 111, '$2a$15$.pujdZTGaxeb4a9iKbLs1e7IL35pjzU6XroyHC', 0),
-('lucaschavez', 'andre@gmail.com', 123, 123, '123123', 0),
-('andre', 'andrew@gmail.com', 170, 780, '13455', 1),
-('fernando', 'fernando@gmail.com', 180, 70, '1345', 1),
-('khyron briso', 'khyronpajaro@gmail.com', 172, 100, '123123', 0),
-('aaaa', 'laaaa@gmail.com', 200, 100, 'andaaaa', 0),
-('lucas', 'lucas@gmail.com', 160, 70, 'andreslove', 0),
-('javier ignacio', 'perezpsn1@gmail.com', 170, 100, 'soydios', 0);
+INSERT INTO `usuario` (`Nombre`, `Email`, `Altura`, `Peso`, `Clave`, `Admin`, `activo`) VALUES
+('aaaaaaaaaaaaa', 'aaa@gmail.com', 111, 111, '$2a$15$.pujdZTGaxeb4a9iKbLs1e7IL35pjzU6XroyHC', 1, 0),
+('javier perez', 'carlogay@gmail.com', 123, 123, '$2a$15$JvGn2BoLtEGE1AKe2SOGt.ZSAWLSo1uaQPMro7', 0, 1),
+('fernando andre', 'joselove@gmail.com', 210, 100, '$2a$15$2P5mV0EblmVYFND5Wfm8Y.rbe5qFyUHz4EeXqz', 0, 0),
+('andre pailamilla', 'kbotas@gmail.com', 170, 100, '$2a$15$sLiGhbydRldt7LyRNHiqRuuHNy4qU27eb2boM7', 0, 0),
+('lucaschavez', 'mapache1@gmail.com', 123, 123, '$2a$15$w4Iuro.lKjR6qQxBwYWw9e0Zk42PcK/zNajLgb', 0, 0),
+('rocket raccon', 'mapache@gmail.com', 100, 40, '$2a$15$/JJzYLb4NDbrKPVhURGYPOuWi/Plz7TDjrTIcO', 0, 0),
+('Peter Quill', 'starlord@gmail.com', 173, 90, '$2a$15$3nc1sE0/k.3yEN5fpn8AFuXDw.9XWnvhagvFtX', 1, 0);
 
 --
 -- Índices para tablas volcadas
