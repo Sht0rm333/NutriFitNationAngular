@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DatosService } from '../services/datos.servicio';
 import { registro } from '../interfaces/registro';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 function validacionContrasena(control: any): Boolean {
   const contrasena = control.get('contrasena');
@@ -13,6 +13,34 @@ function validacionContrasena(control: any): Boolean {
 
   return false;
 }
+
+/*function validacionCorreo(email:String , DatosRegistro:DatosService):Boolean{
+  let datos = Array<>;
+  DatosRegistro.consultarUsuarios().subscribe((data: registro[]) => {
+    for(let i = 0; i<data.length; i++){
+      if(email == data[i].Email){
+        this.datos.push(data[i]);
+      }
+    }
+    return false;
+  });
+  return false;
+}*/
+
+function validacionCorreo(email: string, DatosRegistro: DatosService): Promise<boolean> {
+  return new Promise<boolean>((resolve, reject) => {
+    DatosRegistro.consultarUsuarios().subscribe((data: registro[]) => {
+      for (let i = 0; i < data.length; i++) {
+        if (email === data[i].Email) {
+          resolve(true);
+          return;
+        }
+      }
+      resolve(false);
+    });
+  });
+}
+
 
 @Component({
   selector: 'app-registro',
@@ -33,16 +61,40 @@ export class RegistroComponent {
       contrasena: new FormControl('', [Validators.required, Validators.minLength(5)]),
       confirmar: new FormControl('', [Validators.required]),
       genero: new FormControl('', [Validators.required])
-    },{ validators: validacionContrasena });
+    },{ validators: validacionContrasena});
   }
-  submit() {
+  /*submit() {
     this.formularioContacto.removeControl("genero");
     this.formularioContacto.removeControl("confirmar");
     if (this.formularioContacto.valid){
-      this.DatosRegistro.postUsuario(this.formularioContacto.value).subscribe();
-      this.resultado = "Todos los datos son válidos";
+      let email = this.formularioContacto.value.correo;
+      if(validacionCorreo(email, this.DatosRegistro) == false){
+        this.DatosRegistro.postUsuario(this.formularioContacto.value).subscribe();
+        this.resultado = "Todos los datos son válidos";
+      }else{
+        this.resultado = "Ese Email ya fue registrado";
+      }
     }
     else
       this.resultado = "Hay datos inválidos en el formulario";
+  }*/
+
+  submit() {
+    this.formularioContacto.removeControl("genero");
+    this.formularioContacto.removeControl("confirmar");
+    if (this.formularioContacto.valid) {
+      let email = this.formularioContacto.value.correo;
+      validacionCorreo(email, this.DatosRegistro).then((existeEmail) => {
+        if (!existeEmail) {
+          this.DatosRegistro.postUsuario(this.formularioContacto.value).subscribe();
+          this.resultado = "Todos los datos son válidos";
+        } else {
+          this.resultado = "Ese Email ya fue registrado";
+        }
+      });
+    } else {
+      this.resultado = "Hay datos inválidos en el formulario";
+    }
   }
+  
 }
