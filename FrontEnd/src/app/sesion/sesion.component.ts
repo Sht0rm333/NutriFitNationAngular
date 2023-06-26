@@ -3,6 +3,8 @@ import { DatosService } from '../services/datos.servicio';
 import { sesion } from '../interfaces/sesion';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+
+
 function validacionCuenta(correo: string, contrasena: string, datos: any): boolean {
   for(let i = 0; i<datos.length; i++){
     const primerDato = datos[i];
@@ -22,7 +24,7 @@ function validacionCuenta(correo: string, contrasena: string, datos: any): boole
 })
 export class SesionComponent {
   datos: Array<sesion> = [];
-  constructor(private ServicioRegistro: DatosService) { 
+  constructor(private ServicioRegistro: DatosService ) { 
     this.siteKey='6LcLsMgmAAAAAP7GuCH-TmOql6JCxhyIDJpA5PFR';
   }
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class SesionComponent {
     contrasena: new FormControl('', [Validators.required, Validators.minLength(5)]),
     recaptcha: new FormControl('', [Validators.required])
   });
+  
   submit() {
     if (this.formularioContacto.valid){
       let correo = this.formularioContacto.get('correo')?.value!;
