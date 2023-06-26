@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DatosService } from '../services/datos.servicio';
 import { registro } from '../interfaces/registro';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
