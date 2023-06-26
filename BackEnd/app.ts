@@ -40,6 +40,21 @@ app.get("/diablo", jsonParser, (req: any, res: any) => {
     })
 })
 
+app.post("/verificacion", jsonParser, (req: any, res: any) => {
+    let email =  req.body.correo;
+    let clave = req.body.contrasena;
+    bcrypt.hash(clave, saltRound, (error:any, hash:any)=>{
+        if (error) {
+            console.error(error);
+            hash.status(500).send("error hasheando password")
+        } else {
+            connection.query("select * from usuario where email=?",[email],function (error: any, results: any, fields: any) {
+                    res.send(JSON.stringify(results));
+            })
+        }
+    })
+})
+
 app.post("/usuario", jsonParser, (req: any, res: any) => {
     let nombre = req.body.nombre;
     let email = req.body.correo;
@@ -59,21 +74,10 @@ app.post("/usuario", jsonParser, (req: any, res: any) => {
     })
 });
 
-app.put("", jsonParser, (req: any, res: any) => {
-    let nombre = req.body.nombre;
-    let email = req.body.email;
-    let altura = req.body.altura;
-    let peso = req.body.peso;
-    let clave = req.body.clave;
-    bcrypt.Hash(clave, saltRound, (error: any, hash: any) => {
-        if (error) {
-            console.error(error);
-            hash.status(500).send("error hasheando password")
-        } else {
-            connection.query("insert into usuario (nombre,email,altura,peso,clave)values(?,?,?,?,?,?)",
-                [nombre, email, altura, peso, clave], function (error: any, results: any, fields: any) {
+app.put("/activo", jsonParser, (req: any, res: any) => {
+    let email = req.body.correo;
+    connection.query("update usuario set activo = ? where email=?",
+                [1,email], function (error: any, results: any, fields: any) {
                     res.send(JSON.stringify(results))
-                })
-        }
     })
 })

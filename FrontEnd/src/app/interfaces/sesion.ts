@@ -1,4 +1,4 @@
 export interface sesion{
-    correo:string,
-    contrasena:string
+    Email:string,
+    Clave:string
 }

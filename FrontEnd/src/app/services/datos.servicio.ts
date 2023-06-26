@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { registro } from '../interfaces/registro';
+import { sesion } from '../interfaces/sesion';
 
 const URL = 'http://127.0.0.1:4200';
 
@@ -9,11 +10,20 @@ const URL = 'http://127.0.0.1:4200';
   providedIn: 'root'
 })
 export class DatosService {
-  public JsonURL='http://localhost:3000/usuario';
   constructor(private http:HttpClient) {}
 
-  public getJSON():Observable<any>{
-    return this.http.get(this.JsonURL);
+  public correoClaveUsuario(usuario:any):Observable<registro[]>{
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(usuario);
+    console.log(body)
+    return this.http.post<registro[]>(URL + "/verificacion",body,{'headers':headers});
+  }
+
+  public usuarioActivo(usuario:any):Observable<any>{
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(usuario);
+    console.log(body)
+    return this.http.put(URL + "/activo",body,{'headers':headers});
   }
 
   public postUsuario(usuario:any): Observable<any> {
