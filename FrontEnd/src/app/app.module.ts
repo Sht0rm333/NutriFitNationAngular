@@ -7,6 +7,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -25,6 +26,7 @@ import { VideosComponent } from './videos/videos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { BrazosComponent } from './brazos/brazos.component';
 
 
 const appRoutes: Routes = [
@@ -38,7 +40,9 @@ const appRoutes: Routes = [
   { path: "terminos", component: TerminosComponent },
   { path: "videos", component: VideosComponent },
   { path: "admin", component: AdminComponent },
-  { path: "perfil", component: PerfilComponent }
+  { path: "perfil", component: PerfilComponent },
+  { path: "brazos", component: BrazosComponent }
+
 ];
 
 @NgModule({
@@ -58,6 +62,7 @@ const appRoutes: Routes = [
     VideosComponent,
     AdminComponent,
     PerfilComponent,
+    BrazosComponent,
   ],
   imports: [
     BrowserModule,

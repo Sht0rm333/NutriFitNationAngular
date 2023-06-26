@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DatosService } from '../services/datos.servicio';
 import { registro } from '../interfaces/registro';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 
 function validacionContrasena(control: any): Boolean {
   const contrasena = control.get('contrasena');
@@ -52,7 +53,7 @@ export class RegistroComponent {
   formularioContacto!: FormGroup;
   resultado!: string;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  constructor(private DatosRegistro:DatosService) {
+  constructor(private DatosRegistro:DatosService,private router: Router) {
     this.formularioContacto = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.minLength(10)]),
       correo: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),
@@ -78,7 +79,6 @@ export class RegistroComponent {
     else
       this.resultado = "Hay datos inválidos en el formulario";
   }*/
-
   submit() {
     this.formularioContacto.removeControl("genero");
     this.formularioContacto.removeControl("confirmar");
@@ -87,7 +87,11 @@ export class RegistroComponent {
       validacionCorreo(email, this.DatosRegistro).then((existeEmail) => {
         if (!existeEmail) {
           this.DatosRegistro.postUsuario(this.formularioContacto.value).subscribe();
-          this.resultado = "Todos los datos son válidos";
+          this.resultado = "Registrado Exitosamente";
+          setTimeout(() => {
+            this.router.navigate(['/']);
+          }, 2000);
+          
         } else {
           this.resultado = "Ese Email ya fue registrado";
         }
@@ -96,5 +100,4 @@ export class RegistroComponent {
       this.resultado = "Hay datos inválidos en el formulario";
     }
   }
-  
 }
