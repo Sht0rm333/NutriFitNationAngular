@@ -1,29 +1,30 @@
-body{
+body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(45deg,#A0E739,#09cac0);
+    background: linear-gradient(45deg, #A0E739, #09cac0);
     font-family: consolas !important;
     position: relative;
 }
 
 
 
-header{
+header {
     height: 100px;
     width: 100%;
     display: flex;
     background-image: url(https://d1csarkz8obe9u.cloudfront.net/posterpreviews/gym-girl-design-template-3f1ec92d5869e69a9c897df7430803c3_screen.jpg?ts=1571933051);
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
-#logo{
+#logo {
     width: 120px;
     height: 100px;
 }
 
-#titulo{
+#titulo {
     text-decoration: none;
-    color: rgb(12, 97, 40);;
-    font-size:xx-large;
+    color: rgb(12, 97, 40);
+    ;
+    font-size: xx-large;
 }
