@@ -14,19 +14,6 @@ function validacionContrasena(control: any): Boolean {
   return false;
 }
 
-/*function validacionCorreo(email:String , DatosRegistro:DatosService):Boolean{
-  let datos = Array<>;
-  DatosRegistro.consultarUsuarios().subscribe((data: registro[]) => {
-    for(let i = 0; i<data.length; i++){
-      if(email == data[i].Email){
-        this.datos.push(data[i]);
-      }
-    }
-    return false;
-  });
-  return false;
-}*/
-
 function validacionCorreo(email: string, DatosRegistro: DatosService): Promise<boolean> {
   return new Promise<boolean>((resolve, reject) => {
     DatosRegistro.consultarUsuarios().subscribe((data: registro[]) => {
@@ -48,11 +35,11 @@ function validacionCorreo(email: string, DatosRegistro: DatosService): Promise<b
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent {
-  datos:Array<registro>=[];
+  datos: Array<registro> = [];
   formularioContacto!: FormGroup;
   resultado!: string;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  constructor(private DatosRegistro:DatosService) {
+  constructor(private DatosRegistro: DatosService) {
     this.formularioContacto = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.minLength(10)]),
       correo: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),
@@ -61,24 +48,8 @@ export class RegistroComponent {
       contrasena: new FormControl('', [Validators.required, Validators.minLength(5)]),
       confirmar: new FormControl('', [Validators.required]),
       genero: new FormControl('', [Validators.required])
-    },{ validators: validacionContrasena});
+    }, { validators: validacionContrasena });
   }
-  /*submit() {
-    this.formularioContacto.removeControl("genero");
-    this.formularioContacto.removeControl("confirmar");
-    if (this.formularioContacto.valid){
-      let email = this.formularioContacto.value.correo;
-      if(validacionCorreo(email, this.DatosRegistro) == false){
-        this.DatosRegistro.postUsuario(this.formularioContacto.value).subscribe();
-        this.resultado = "Todos los datos son válidos";
-      }else{
-        this.resultado = "Ese Email ya fue registrado";
-      }
-    }
-    else
-      this.resultado = "Hay datos inválidos en el formulario";
-  }*/
-
   submit() {
     this.formularioContacto.removeControl("genero");
     this.formularioContacto.removeControl("confirmar");
@@ -89,12 +60,12 @@ export class RegistroComponent {
           this.DatosRegistro.postUsuario(this.formularioContacto.value).subscribe();
           this.resultado = "Todos los datos son válidos";
         } else {
-          this.resultado = "Ese Email ya fue registrado";
+          this.resultado = "Ese correo ya fue registrado";
         }
       });
     } else {
       this.resultado = "Hay datos inválidos en el formulario";
     }
   }
-  
+
 }
