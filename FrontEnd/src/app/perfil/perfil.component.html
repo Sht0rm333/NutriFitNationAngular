@@ -11,10 +11,10 @@
                     <p>Correo electrónico: {{dato.Email}}</p>
                     <p>Altura: {{dato.Altura}}</p>
                     <p>Peso: {{dato.Peso}}</p>
-                    <div>
-                        <input class="btn btn-primary btn-s" type="submit" value="Cerrar sesión" id="enviar" />
-                    </div>
                 </div>
+                <button type="button" class="btn btn-success btn-block mb-5" (click)="submit()">
+                    Cerrar sesión
+                </button>
             </div>
             <div class="col-sm-3"></div>
         </div>

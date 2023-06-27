@@ -3,5 +3,7 @@ export interface registro{
     Email:String,
     Altura:number,
     Peso:number,
-    Clave:String
+    Clave:String,
+    Admin:number,
+    Activo:number
 }

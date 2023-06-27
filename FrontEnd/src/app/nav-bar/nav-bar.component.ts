@@ -8,15 +8,23 @@ import { registro } from '../interfaces/registro';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
-  resultado: boolean = false;
+  resultado: boolean;
+  admin:boolean;
   constructor(private datosAdmin: DatosService) { }
   ngOnInit(): void {
     this.datosAdmin.consultarActivo().subscribe((data: registro[]) => {
-      if(data.length != 0){
+      if(data[0].Activo != 0){
         this.resultado = true
       }
       else{
         this.resultado = false
+      }
+    })
+    this.datosAdmin.consultarAdmin().subscribe((dat: registro[])=>{
+      if(dat[0].Admin != 0){
+        this.admin = true
+      }else{
+        this.admin = false
       }
     })
   }

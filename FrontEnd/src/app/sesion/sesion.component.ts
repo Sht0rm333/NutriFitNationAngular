@@ -37,7 +37,7 @@ export class SesionComponent {
           this.resultado = "Se inicio sesión con exito";
           setTimeout(() => {
             this.router.navigate(['/']);
-          }, 2000);
+          }, 1000);
         }
       });
     }

@@ -1,7 +1,7 @@
 <div class="topnav">
     <a class="nav-link active" *ngIf="!resultado" aria-current="page" href="/sesion">Iniciar sesión</a>
     <a class="nav-link active" *ngIf="!resultado" aria-current="page" href="/registro">Registrarse</a>
-    <a class="nav-link active" *ngIf="!resultado" aria-current="page" href="/admin">Borrar perfil</a>
+    <a class="nav-link active" *ngIf="!resultado && !admin" aria-current="page" href="/admin">Borrar perfil</a>
     <a class="nav-link active" aria-current="page" href="/ejercicios">Ejercicio</a>
     <a class="nav-link active" aria-current="page" href="/calculadora">Calculadora</a>
     <a class="nav-link active" aria-current="page" href="/alimentacion">Alimentos saludables</a>

@@ -16,10 +16,8 @@ export class PerfilComponent {
       this.datos = data;
     });
   }
-  submit() {
-    this.datosAdmin.cerrarSesion(this.datos).subscribe();
+  submit(){
+    this.datosAdmin.cerrarSesion(this.datos[0]).subscribe();
     this.router.navigate(['/']);
   }
 }
-
-//Ayúdame Jesús

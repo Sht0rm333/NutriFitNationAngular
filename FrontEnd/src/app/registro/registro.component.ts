@@ -63,7 +63,7 @@ export class RegistroComponent {
           this.resultado = "Registrado Exitosamente";
           setTimeout(() => {
             this.router.navigate(['/']);
-          }, 2000);
+          }, 1000);
 
         } else {
           this.resultado = "Ese Email ya fue registrado";

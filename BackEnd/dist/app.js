@@ -80,7 +80,6 @@ app.put("/activo", jsonParser, (req, res) => {
 });
 app.get("/siActivo", jsonParser, (req, res) => {
     connection.query("select * from usuario where activo=1", function (error, results, fields) {
-        console.log(results);
         if (error) {
             console.error(error);
         }
@@ -89,9 +88,19 @@ app.get("/siActivo", jsonParser, (req, res) => {
         }
     });
 });
-app.put("/noActivo", jsonParser, (req, res) => {
-    let email = req.body.correo;
+app.put("/no", jsonParser, (req, res) => {
+    let email = req.body.Email;
     connection.query("update usuario set activo = ? where email = ?", [0, email], function (error, results, fields) {
         res.send(JSON.stringify(results));
+    });
+});
+app.get("/admin", jsonParser, (req, res) => {
+    connection.query("select * from usuario where admin=1", function (error, results, fields) {
+        if (error) {
+            console.error(error);
+        }
+        else {
+            res.send(JSON.stringify(results));
+        }
     });
 });

@@ -15,14 +15,13 @@ export class DatosService {
   public correoClaveUsuario(usuario: any): Observable<registro[]> {
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(usuario);
-    console.log(body)
     return this.http.post<registro[]>(URL + "/verificacion", body, { 'headers': headers });
   }
 
-  public usuarioActivo(usuario: any): Observable<any> {
+  public usuarioActivo(usuario: any): Observable<registro[]> {
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(usuario);
-    return this.http.put(URL + "/activo", body, { 'headers': headers });
+    return this.http.put<registro[]>(URL + "/activo", body, { 'headers': headers });
   }
 
   public postUsuario(usuario: any): Observable<any> {
@@ -39,9 +38,14 @@ export class DatosService {
     return this.http.get<registro[]>(URL + "/siActivo");
   }
 
-  public cerrarSesion(usuario: any): Observable<any> {
+  public cerrarSesion(usuario: any): Observable<registro[]> {
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(usuario);
-    return this.http.put(URL + "/noActivo", body, { 'headers': headers });
+    return this.http.put<registro[]>(URL + "/no", body, { 'headers': headers });
   }
+
+  public consultarAdmin(): Observable<registro[]> {
+    return this.http.get<registro[]>(URL + "/admin");
+  }
+
 }
