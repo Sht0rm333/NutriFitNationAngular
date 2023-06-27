@@ -8,7 +8,7 @@
                 </div>
                 <h2 style="margin-bottom: 20px">Usuarios registrados:</h2>
                 <div class="row m-2 " *ngFor="let dato of datos">
-                    <span>{{dato.Nombre}} {{dato.Email}}</span>
+                    <label style="text-align: left;"><input type="checkbox" checklist-model="usuario" checklist-value="datos" /> {{dato.Nombre}} {{dato.Email}}<br/> </label>
                 </div>
                 <button type="submit" class="btn btn-success btn-block mb-5" id="verUser">Eliminar usuario</button>
             </div>

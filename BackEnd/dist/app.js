@@ -94,8 +94,9 @@ app.put("/no", jsonParser, (req, res) => {
         res.send(JSON.stringify(results));
     });
 });
-app.get("/admin", jsonParser, (req, res) => {
-    connection.query("select * from usuario where admin=1", function (error, results, fields) {
+app.post("/admin", jsonParser, (req, res) => {
+    let email = req.body.Email;
+    connection.query("select * from usuario where email = ?", [email], function (error, results, fields) {
         if (error) {
             console.error(error);
         }

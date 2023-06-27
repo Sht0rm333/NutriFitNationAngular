@@ -44,8 +44,10 @@ export class DatosService {
     return this.http.put<registro[]>(URL + "/no", body, { 'headers': headers });
   }
 
-  public consultarAdmin(): Observable<registro[]> {
-    return this.http.get<registro[]>(URL + "/admin");
+  public consultarAdmin(usuario: any): Observable<registro[]> {
+    const headers = { 'content-type': 'application/json' }
+    const body = JSON.stringify(usuario);
+    return this.http.post<registro[]>(URL + "/admin", body,{ 'headers': headers });
   }
 
 }
