@@ -6,13 +6,13 @@
                 <div class="row text-left">
                     <h2>Datos de usuario:</h2>
                 </div>
-                <div class="row m-2">
-                    <p>Nombre: </p>
-                    <p>Correo electrónico: </p>
-                    <p>Altura: </p>
-                    <p>Peso: </p>
+                <div class="row m-2" *ngFor="let dato of datos">
+                    <p>Nombre: {{dato.Nombre}}</p>
+                    <p>Correo electrónico: {{dato.Email}}</p>
+                    <p>Altura: {{dato.Altura}}</p>
+                    <p>Peso: {{dato.Peso}}</p>
                     <div>
-                        <input class="btn btn-primary btn-s" type="button" value="Cerrar sesión" id="enviar" />
+                        <input class="btn btn-primary btn-s" type="submit" value="Cerrar sesión" id="enviar" />
                     </div>
                 </div>
             </div>

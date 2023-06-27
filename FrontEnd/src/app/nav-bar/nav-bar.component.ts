@@ -8,7 +8,6 @@ import { registro } from '../interfaces/registro';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
-  datos: registro[] = []
   resultado: boolean = false;
   constructor(private datosAdmin: DatosService) { }
   ngOnInit(): void {

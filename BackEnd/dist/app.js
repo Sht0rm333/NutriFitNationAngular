@@ -89,3 +89,9 @@ app.get("/siActivo", jsonParser, (req, res) => {
         }
     });
 });
+app.put("/noActivo", jsonParser, (req, res) => {
+    let email = req.body.correo;
+    connection.query("update usuario set activo = ? where email = ?", [0, email], function (error, results, fields) {
+        res.send(JSON.stringify(results));
+    });
+});

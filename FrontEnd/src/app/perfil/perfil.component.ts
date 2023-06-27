@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+import { DatosService } from '../services/datos.servicio';
+import { Router } from '@angular/router';
+import { registro } from '../interfaces/registro';
 
 @Component({
   selector: 'app-perfil',
@@ -7,8 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent {
-
-  cerrarSesion() {
-    return("xd");
+  datos: registro[] = []
+  constructor(private datosAdmin: DatosService, private router: Router) { }
+  ngOnInit(): void {
+    this.datosAdmin.consultarActivo().subscribe((data: registro[]) => {
+      this.datos = data;
+    });
+  }
+  submit() {
+    this.datosAdmin.cerrarSesion(this.datos).subscribe();
+    this.router.navigate(['/']);
   }
 }
+
+//Ayúdame Jesús

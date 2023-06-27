@@ -10,34 +10,38 @@ const URL = 'http://127.0.0.1:4200';
   providedIn: 'root'
 })
 export class DatosService {
-  constructor(private http:HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  public correoClaveUsuario(usuario:any):Observable<registro[]>{
-    const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(usuario);
+  public correoClaveUsuario(usuario: any): Observable<registro[]> {
+    const headers = { 'content-type': 'application/json' }
+    const body = JSON.stringify(usuario);
     console.log(body)
-    return this.http.post<registro[]>(URL + "/verificacion",body,{'headers':headers});
+    return this.http.post<registro[]>(URL + "/verificacion", body, { 'headers': headers });
   }
 
-  public usuarioActivo(usuario:any):Observable<any>{
-    const headers = { 'content-type': 'application/json'}
-    const body=JSON.stringify(usuario);
-    console.log(body)
-    return this.http.put(URL + "/activo",body,{'headers':headers});
+  public usuarioActivo(usuario: any): Observable<any> {
+    const headers = { 'content-type': 'application/json' }
+    const body = JSON.stringify(usuario);
+    return this.http.put(URL + "/activo", body, { 'headers': headers });
   }
 
-  public postUsuario(usuario:any): Observable<any> {
-    const headers = { 'content-type': 'application/json'}  
-    const body=JSON.stringify(usuario);
-    console.log(body)
-    return this.http.post(URL + "/usuario", body,{'headers':headers});
+  public postUsuario(usuario: any): Observable<any> {
+    const headers = { 'content-type': 'application/json' }
+    const body = JSON.stringify(usuario);
+    return this.http.post(URL + "/usuario", body, { 'headers': headers });
   }
 
-  public consultarUsuarios(): Observable<registro[]>{
+  public consultarUsuarios(): Observable<registro[]> {
     return this.http.get<registro[]>(URL + "/diablo");
   }
 
-  public consultarActivo(): Observable<registro[]>{
+  public consultarActivo(): Observable<registro[]> {
     return this.http.get<registro[]>(URL + "/siActivo");
-  } 
+  }
+
+  public cerrarSesion(usuario: any): Observable<any> {
+    const headers = { 'content-type': 'application/json' }
+    const body = JSON.stringify(usuario);
+    return this.http.put(URL + "/noActivo", body, { 'headers': headers });
+  }
 }
