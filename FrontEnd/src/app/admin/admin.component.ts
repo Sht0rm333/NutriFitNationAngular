@@ -15,7 +15,11 @@ export class AdminComponent {
   ngOnInit(): void {
     this.ServicioRegistro.consultarUsuarios().subscribe((data: registro[]) => {
       for (let i = 0; i < data.length; i++) {
-        this.datos.push(data[i]);
+        if (data[i].Activo == 0) {
+          if (data[i].Admin == 0) {
+            this.datos.push(data[i]);
+          }
+        }
       }
     });
   }
@@ -24,7 +28,7 @@ export class AdminComponent {
     console.log(this.datos[index].Email);
     this.ServicioRegistro.delete(this.datos[index].Email).subscribe(data => {
       console.log(data.mensaje)
-      this.router.navigate(['admin'])
+      this.router.navigate(['/admin'])
     });
   }
 }
