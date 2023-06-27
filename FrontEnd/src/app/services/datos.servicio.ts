@@ -36,4 +36,8 @@ export class DatosService {
   public consultarUsuarios(): Observable<registro[]>{
     return this.http.get<registro[]>(URL + "/diablo");
   }
+
+  public consultarActivo(): Observable<registro[]>{
+    return this.http.get<registro[]>(URL + "/siActivo");
+  } 
 }

@@ -1,18 +1,11 @@
 <div class="topnav">
-    <a class="nav-link active" aria-current="page" href="/sesion">Iniciar sesión</a>
-    <a class="nav-link active" aria-current="page" href="/registro">Registrarse</a>
-    <a class="nav-link active" aria-current="page" href="/admin">Borrar perfil</a>
-    <li style="list-style: none;">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Otros
-        </a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/ejercicios" style="color: black;">Ejercicio</a></li>
-            <li><a class="dropdown-item" href="/calculadora" style="color: black;">Calculadora</a></li>
-            <li><a class="dropdown-item" href="/alimentacion" style="color: black;">Alimentos saludables</a></li>
-        </ul>
-    </li>
+    <a class="nav-link active" *ngIf="!resultado" aria-current="page" href="/sesion">Iniciar sesión</a>
+    <a class="nav-link active" *ngIf="!resultado" aria-current="page" href="/registro">Registrarse</a>
+    <a class="nav-link active" *ngIf="!resultado" aria-current="page" href="/admin">Borrar perfil</a>
+    <a class="nav-link active" aria-current="page" href="/ejercicios">Ejercicio</a>
+    <a class="nav-link active" aria-current="page" href="/calculadora">Calculadora</a>
+    <a class="nav-link active" aria-current="page" href="/alimentacion">Alimentos saludables</a>
     <div class="topnav-right">
-        <a class="nav-link active" aria-current="page" href="/perfil">Mi perfil</a>
+        <a class="nav-link active" *ngIf="resultado" aria-current="page" href="/perfil">Mi perfil</a>
     </div>
 </div>

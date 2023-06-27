@@ -78,3 +78,14 @@ app.put("/activo", jsonParser, (req, res) => {
         res.send(JSON.stringify(results));
     });
 });
+app.get("/siActivo", jsonParser, (req, res) => {
+    connection.query("select * from usuario where activo=1", function (error, results, fields) {
+        console.log(results);
+        if (error) {
+            console.error(error);
+        }
+        else {
+            res.send(JSON.stringify(results));
+        }
+    });
+});

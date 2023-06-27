@@ -32,24 +32,24 @@ app.listen(configuracion, () => {
 
 app.get("/diablo", jsonParser, (req: any, res: any) => {
     connection.query("select * from usuario", function (error: any, results: any, fields: any) {
-        if(error){
+        if (error) {
             console.error(error);
-        }else{
+        } else {
             res.send(JSON.stringify(results))
         }
     })
 })
 
 app.post("/verificacion", jsonParser, (req: any, res: any) => {
-    let email =  req.body.correo;
+    let email = req.body.correo;
     let clave = req.body.contrasena;
-    bcrypt.hash(clave, saltRound, (error:any, hash:any)=>{
+    bcrypt.hash(clave, saltRound, (error: any, hash: any) => {
         if (error) {
             console.error(error);
             hash.status(500).send("error hasheando password")
         } else {
-            connection.query("select * from usuario where email=?",[email],function (error: any, results: any, fields: any) {
-                    res.send(JSON.stringify(results));
+            connection.query("select * from usuario where email=?", [email], function (error: any, results: any, fields: any) {
+                res.send(JSON.stringify(results));
             })
         }
     })
@@ -77,7 +77,18 @@ app.post("/usuario", jsonParser, (req: any, res: any) => {
 app.put("/activo", jsonParser, (req: any, res: any) => {
     let email = req.body.correo;
     connection.query("update usuario set activo = ? where email=?",
-                [1,email], function (error: any, results: any, fields: any) {
-                    res.send(JSON.stringify(results))
+        [1, email], function (error: any, results: any, fields: any) {
+            res.send(JSON.stringify(results))
+        })
+})
+
+app.get("/siActivo", jsonParser, (req: any, res: any) => {
+    connection.query("select * from usuario where activo=1", function (error: any, results: any, fields: any) {
+        console.log(results)
+        if (error) {
+            console.error(error);
+        } else {
+            res.send(JSON.stringify(results))
+        }
     })
 })
