@@ -48,8 +48,8 @@ app.post("/verificacion", jsonParser, (req: any, res: any) => {
             console.error(error);
             hash.status(500).send("error hasheando password")
         } else {
-            connection.query("select * from usuario where email=?", [email], function (error: any, results: any, fields: any) {
-                res.send(JSON.stringify(results));
+            connection.query("select * from usuario where email=? ", [email], function (error: any, results: any, fields: any) {
+                res.send(JSON.stringify(results)); //compare(contraGod, contraEncript)
             })
         }
     })
@@ -109,4 +109,11 @@ app.post("/admin", jsonParser, (req: any, res: any) => {
             res.send(JSON.stringify(results))
         }
     })
+
+    app.post("/delete", jsonParser, (req: any, res: any) => {
+        let email = req.body.correo;
+                connection.query("delete * from usuario where email=?", [email], function (error: any, results: any, fields: any) {
+                    res.send(JSON.stringify(results));
+                })
+        })
 })

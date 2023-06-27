@@ -50,4 +50,9 @@ export class DatosService {
     return this.http.post<registro[]>(URL + "/admin", body,{ 'headers': headers });
   }
 
+  public delete(): Observable<registro[]> {
+    const headers = { 'content-type': 'application/json' }
+    return this.http.post<registro[]>(URL + "/delete", { 'headers': headers });
+  }
+
 }
