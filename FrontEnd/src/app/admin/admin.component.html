@@ -7,9 +7,9 @@
                     <h1>Página administrador</h1>
                 </div>
                 <h2 style="margin-bottom: 20px">Usuarios registrados:</h2>
-                <div class="row m-2 " *ngFor="let dato of datos">
-                    <label style="text-align: left;"><input type="button" value="borrar" class="btn btn-danger" (click)="delete(dato)"/>
-                        {{dato.Nombre}} {{dato.Email}}<br /></label>
+                <div class="row m-2 " *ngFor="let dato of datos; index as i">
+                    <label style="text-align: left;"><input type="button" value="borrar" class="btn btn-danger" (click)="delete(i)"/>
+                        {{dato.Nombre}} {{dato.Email}} {{i}}<br /></label>
                 </div>
             </div>
             <div class="col-sm-3"></div>

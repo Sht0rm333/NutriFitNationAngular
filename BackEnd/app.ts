@@ -24,7 +24,7 @@ connection.connect(function (err: any) {
 
 const configuracion = {
     hostname: "127.0.0.1",
-    port: 4200,
+    port: 5000,
 }
 app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`)
@@ -102,7 +102,7 @@ app.put("/no", jsonParser, (req: any, res: any) => {
 
 app.post("/admin", jsonParser, (req: any, res: any) => {
     let email = req.body.Email
-    connection.query("select * from usuario where email = ?",[email],function (error: any, results: any, fields: any) {
+    connection.query("select * from usuario where email = ?", [email], function (error: any, results: any, fields: any) {
         if (error) {
             console.error(error);
         } else {
@@ -110,10 +110,15 @@ app.post("/admin", jsonParser, (req: any, res: any) => {
         }
     })
 
-    app.post("/delete", jsonParser, (req: any, res: any) => {
-        let email = req.body.correo;
-                connection.query("delete * from usuario where email=?", [email], function (error: any, results: any, fields: any) {
-                    res.send(JSON.stringify(results));
-                })
+    app.delete("/delete", jsonParser, (req: any, res: any) => {
+        console.log(req.body.email)
+        let email = req.body.email;
+        connection.query("delete from usuario where email=?", [email], function (error: any, results: any, fields: any) {
+            if (error) throw error
+            else {
+                res.json({ mensaje: "dato borrado" });
+
+            }
         })
+    })
 })
